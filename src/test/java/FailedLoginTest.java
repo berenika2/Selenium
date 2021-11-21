@@ -24,8 +24,9 @@ public class FailedLoginTest {
 
     @Test
     public void asUserTryToLogInWithIncorrectLoginAndPassword() {
-        WebElement enterStoreLink = driver.findElement(By.cssSelector("#Content a"));
-        enterStoreLink.click();
+
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnEnterStoreLink();
 
         WebElement signOnLink = driver.findElement(By.cssSelector("#MenuContent a[href*='signonForm']"));
         signOnLink.click();
