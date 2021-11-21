@@ -31,18 +31,13 @@ public class FailedLoginTest {
         TopMenuPage topMenuPage = new TopMenuPage(driver);
         topMenuPage.clickOnSignInLink();
 
-        WebElement usernameField = driver.findElement(By.name("username"));
-        usernameField.sendKeys("NotExistingLogin");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.typeIntoUserNameField("Nonextstinguser");
+        loginPage.typeIntoPasswordField("password");
+        loginPage.clickOnLoginButton();
+        String warningMessage = loginPage.getWarningMessage();
 
-        WebElement passwordField = driver.findElement(By.name("password"));
-        passwordField.sendKeys("NotProperPassword");
-
-        WebElement signOnButton = driver.findElement(By.name("signon"));
-        signOnButton.click();
-
-        WebElement messageLabel = driver.findElement(By.cssSelector("#Content ul[class='messages'] li"));
-
-        assertEquals(messageLabel.getText(), "Invalid username or password. Signon failed.");
+        assertEquals(warningMessage, "Invalid username or password. Signon failed.");
     }
 
     @AfterMethod
