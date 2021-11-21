@@ -28,8 +28,8 @@ public class FailedLoginTest {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnEnterStoreLink();
 
-        WebElement signOnLink = driver.findElement(By.cssSelector("#MenuContent a[href*='signonForm']"));
-        signOnLink.click();
+        TopMenuPage topMenuPage = new TopMenuPage(driver);
+        topMenuPage.clickOnSignInLink();
 
         WebElement usernameField = driver.findElement(By.name("username"));
         usernameField.sendKeys("NotExistingLogin");
