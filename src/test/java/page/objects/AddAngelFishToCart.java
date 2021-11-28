@@ -5,18 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CategoryFishPage {
-
-    @FindBy(xpath = "//div[@id=\"QuickLinks\"]/a[1]/img")
-    private WebElement fishCategory;
+public class AddAngelFishToCart {
+    @FindBy(css = "a.Button[href$='EST-2']")
+    private WebElement addSmallAngelfishtoCart;
 
     private WebDriver driver;
-    public CategoryFishPage(WebDriver driver){
+    public AddAngelFishToCart(WebDriver driver){
         PageFactory.initElements(driver, this);
 
     }
 
-    public void clickOnFishCategory(){
-        fishCategory.click();
+    public void clickOnAddToCart(){
+        addSmallAngelfishtoCart.click();
     }
 }
