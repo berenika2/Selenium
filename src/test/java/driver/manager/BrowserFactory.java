@@ -9,7 +9,8 @@ public class BrowserFactory {
     public static WebDriver getBrowser(BrowserType browserType) {
         switch (browserType) {
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", "C:/drivers/chromedriver.exe");
+                //System.setProperty("webdriver.chrome.driver", "C:/drivers/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "/Users/berenika/Desktop/Java/chromedriver");
                 return new ChromeDriver();
             case FIREFOX:
                 System.setProperty("webdriver.gecko.driver", "C:/drivers/geckodriver.exe");
