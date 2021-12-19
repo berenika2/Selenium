@@ -7,6 +7,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class AddItemToBasketAndCheckoutTest extends TestBase {
     @Test
     public void AddFishToBasketAndCheckout(){
+
         LandingPage landingPage = new LandingPage();
         landingPage.clickOnEnterStoreLink();
 
