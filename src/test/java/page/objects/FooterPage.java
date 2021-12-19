@@ -10,7 +10,7 @@ import waits.WaitForElement;
 
 public class FooterPage {
     private Logger logger = LogManager.getRootLogger();
-    @FindBy(css = "#Banner img[src*='dog']")
+    @FindBy(css = "img[src*='splash']")
     private WebElement bannerAfterLoginLogo;
 
     public FooterPage() {

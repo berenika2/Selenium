@@ -25,26 +25,32 @@ public class LoginPage {
     @FindBy(css = "#Content ul[class='messages'] li")
     private WebElement messageLabel;
 
+    @FindBy(css = "area[alt='Fish']")
+    private WebElement btnFishImage;
+
     private WebDriver driver;
 
     public LoginPage(){
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void typeIntoUserNameField(String username){
+    public LoginPage typeIntoUserNameField(String username){
         WaitForElement.waitUntilElementIsVisible(usernameField);
         usernameField.sendKeys(username);
         logger.info("Typed into User Name Field {}", username);
+        return this;
     }
-    public void typeIntoPasswordField(String password){
+    public LoginPage typeIntoPasswordField(String password){
         passwordField.clear();
         passwordField.sendKeys(password);
         logger.info("Typed into Password Field {}", password);
-        logger.info("Clicked on Login Button");
+        return this;
     }
 
-    public void clickOnLoginButton(){
+    public FooterPage clickOnLoginButton(){
         signOnButton.click();
+        logger.info("Clicked on Login Button");
+        return new FooterPage();
     }
 
     public String getWarningMessage(){
@@ -52,6 +58,13 @@ public class LoginPage {
         String warningText = messageLabel.getText();
         logger.info("Returned warning message was: {}", warningText);
         return warningText;
+    }
+
+    public CateoryFishIdPage clickOnFishImageButton() {
+        WaitForElement.waitUntilElementIsVisible(btnFishImage);
+        btnFishImage.click();
+        logger.info("Clicked on fish image");
+        return new CateoryFishIdPage();
     }
 
 
